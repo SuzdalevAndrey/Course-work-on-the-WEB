@@ -1,0 +1,36 @@
+<div class="sidebar">
+    <div class="sidebar__left">
+        <img src="../../../../assets/free-icon-home-813670.png" class="home-button" routerLink="/system/job-search-add">
+        <div (mouseenter)="toggleSettingsOnMouseEnter()" (mouseleave)="closeSettingsOnMouseLeave()">
+            <!-- <img src= "../../../../assets/free-icon-settings-503822 (1).png" class="settings-button"> -->
+            <svg class="settings-button" width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Дуга сверху -->
+                <path d="M6 9C8 5 16 5 18 9" stroke="black" stroke-width="1.5" fill="none"/>
+            
+                <!-- Внешний круг -->
+                <circle cx="12" cy="12" r="10" stroke="black" stroke-width="1.5" fill="blue"/>
+            
+                <!-- Дуга снизу -->
+                <path d="M6 15C8 19 16 19 18 15" stroke="black" stroke-width="1.5" fill="none"/>
+            
+                <!-- Полудуга слева -->
+                <path d="M6 9C8 5 16 5 18 9" stroke="black" stroke-width="1.5" fill="none" transform="scale(-1, 1) translate(-24, 0)"/>
+            
+                <!-- Полудуга справа -->
+                <path d="M6 15C8 19 16 19 18 15" stroke="black" stroke-width="1.5" fill="none" transform="scale(-1, 1) translate(-24, 0)"/>
+            </svg>
+            <app-settings *ngIf="isSettingsOpen"></app-settings>
+        </div>
+        <app-search (changeInputValue)="searchInputValueHelp($event)" ></app-search>
+    </div>
+    <div class="sidebar__center">
+        <h1>SkillSphere</h1>
+    </div>
+    <div class="sidebar__right">
+        <!-- <span class="user-name" *ngIf="isLoggedIn" routerLink="/personal-account" >{{ user.name }}</span>
+        <button class="login-button" *ngIf="isLoggedIn" routerLink="/" (click)="LogOut()">Выйти</button>
+        <button class="login-button" *ngIf="!isLoggedIn" routerLink="/login">Войти</button> -->
+        <button class="add-button" *ngIf="isLoggedIn"  [routerLink]="['/system','ad-creating-page']">Добавить объявление</button>
+        <button class="login-button" *ngIf="!isLoggedIn" [routerLink]="['/auth','login']">Войти</button>
+    </div>
+</div>

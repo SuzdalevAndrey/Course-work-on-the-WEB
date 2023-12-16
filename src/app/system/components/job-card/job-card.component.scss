@@ -1,0 +1,73 @@
+  .card {
+    position: relative;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    width: 600px;
+    max-width: 100%;
+    margin-bottom: 30px;
+    cursor: default;
+    &:hover {
+      transform: scale(1.01);
+      -webkit-box-shadow: 0px 5px 20px -5px rgba(0, 0, 0, 1);
+      -moz-box-shadow: 0px 5px 20px -5px rgba(0, 0, 0, 1);
+      box-shadow: 0px 5px 20px -5px rgba(0, 0, 0, 1);
+    }
+  }
+  .edit-icon {
+    position: absolute;
+    top: 35px;
+    right: 35px;
+    cursor: pointer;
+    &:hover{
+      transform: scale(1.1);
+    }
+  }
+  .card-content {
+    padding: 20px;
+  }
+
+  h2 {
+    color: #333;
+  }
+
+  p {
+    color: #666;
+    line-height: 1.6;
+  }
+  .cta-button, .delete-button,.response-button {
+    width: 100%;
+    padding: 5px;
+    background-color: #3498db;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border-radius: 10px;
+    cursor: pointer;
+    &:hover{
+      background-color: #2980b9;
+    }
+  }
+  .delete-button{
+    background-color: #ffa500;
+    &:hover{
+      background-color: #d68b00;
+    }
+  }
+  .response-button{
+    background-color: #ccc;
+    cursor: default;
+    &:hover{
+      background-color: #ccc;
+    }
+  }
+  .job-details {
+    p {
+      margin: 0;
+      color: #555;
+    }
+  }

@@ -1,0 +1,17 @@
+.response-card {
+    position: relative;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    width: 280px;
+    max-width: 100%;
+    margin-bottom: 30px;
+    padding: 20px;
+    cursor: default;
+    &:hover {
+      transform: scale(1.01);
+      -webkit-box-shadow: 0px 5px 20px -5px rgba(0, 0, 0, 1);
+      -moz-box-shadow: 0px 5px 20px -5px rgba(0, 0, 0, 1);
+      box-shadow: 0px 5px 20px -5px rgba(0, 0, 0, 1);
+    }
+}

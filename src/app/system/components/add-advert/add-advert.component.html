@@ -1,0 +1,58 @@
+<div class="form-and-card">
+  <div class="card">
+    <div class="card-content">
+      <h2 *ngIf="form.get('nameJob')?.value">{{ form.get('nameJob')?.value  }}</h2>
+      <h2 *ngIf="!form.get('nameJob')?.value">Новая вакансия</h2>
+
+      <p *ngIf="form.get('сompany')?.value">Компания: {{ form.get('сompany')?.value }}</p>
+      <p *ngIf="!form.get('сompany')?.value">Компания: отсутствует</p>
+
+      <p *ngIf="form.get('salary')?.value">Зарплата: {{ form.get('salary')?.value }}</p>
+      <p *ngIf="!form.get('salary')?.value">Зарплата: отсутствует</p>
+
+      <p *ngIf="form.get('city')?.value">Город: {{ form.get('city')?.value }}</p>
+      <p *ngIf="!form.get('city')?.value">Город: отсутствует</p>
+
+      <p *ngIf="form.get('additionalInformation')?.value">Описание: {{ form.get('additionalInformation')?.value }}</p>
+      <p *ngIf="!form.get('additionalInformation')?.value">Описание: отсутствует</p>
+    </div>
+  </div>
+
+  <div class="card create-form">
+    <div class="content">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="jobTitle">Вакансия:</label>
+          <input type="text" name="nameJob" formControlName="nameJob" placeholder="Вакансия" required>
+          <span *ngIf="form.get('nameJob')?.errors?.['required']" class="warning">Название вакансии не может быть пустым</span>
+        </div>
+
+        <div class="form-group">
+          <label for="companyName">Компания:</label>
+          <input type="text" name="сompany" formControlName="сompany" placeholder="Компания" required>
+          <span *ngIf="form.get('сompany')?.errors?.['required']" class="warning">Название компании не может быть пустым</span>
+        </div>
+
+        <div class="form-group">
+          <label for="salary">Зарплата:</label>
+          <input type="text" name="salary" formControlName="salary" placeholder="1000000" required pattern="[0-9]+">
+          <span *ngIf="form.get('salary')?.errors?.['required']" class="warning">Зарплата не может быть пустой</span>
+          <span *ngIf="form.get('salary')?.hasError('pattern')" class="warning">Зарплата должна быть числом</span>
+        </div>
+
+        <div class="form-group">
+          <label for="city">Город:</label>
+          <input type="text" name="city" formControlName="city" placeholder="Город" required>
+          <span *ngIf="form.get('city')?.errors?.['required']" class="warning">Город не может быть пустым</span>
+        </div>
+
+        <div class="form-group">
+          <label for="additionalInformation">Дополнительная информация:</label>
+          <input type="text" name="additionalInformation" formControlName="additionalInformation">
+        </div>
+
+        <button type="submit" [disabled]="form.invalid">Добавить объявление</button>
+      </form>
+    </div>
+  </div>
+</div>

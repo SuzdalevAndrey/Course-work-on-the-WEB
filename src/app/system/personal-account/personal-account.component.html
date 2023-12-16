@@ -1,0 +1,21 @@
+<app-tool-bar (changeSearchInputH)="changeSearchInput($event)"></app-tool-bar>
+
+<div class="header">
+  <h2 *ngIf="isActiveTab('tab2')">Ваши объявления о поиске работы:</h2>
+  <h2 *ngIf="isActiveTab('tab1')">Отклики на ваши вакансии:</h2>
+  <div class="buttons">
+      <button class="response-button" [class.active]="isActiveTab('tab1')" (click)="switchTab('tab1')">Отклики</button>
+      <button class="my-ads-button" [class.active]="isActiveTab('tab2')" (click)="switchTab('tab2')">Мои объявления</button>
+  </div>
+</div>
+<h3 *ngIf="cardJobsUser.length === 0">У вас пока нет объявлений</h3>
+<div *ngIf="isActiveTab('tab2')" class="content">
+  <app-job-card *ngFor="let card of cardJobsUser | filterCard:searchInputValue" [card]="card"></app-job-card>
+</div>
+<div *ngIf="isActiveTab('tab1')">
+  <div *ngFor="let job of cardJobsUser | filterCard:searchInputValue">
+    <div class="response-cards">
+      <app-response-card *ngFor="let response of getResponsesForJob(job)" [response]="response" [nameJob]="job.nameWork"></app-response-card>
+    </div>
+  </div>
+</div>

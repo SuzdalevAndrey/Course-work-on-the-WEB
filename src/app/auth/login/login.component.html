@@ -1,0 +1,44 @@
+<body>
+<div class="form-container" >
+  <h2>Вход</h2>
+  <div
+    id="login"
+    [ngClass]="{'has-error':form.get('email')?.invalid && form.get('email')?.touched}"
+    [ngClass]="{'has-error':form.get('password')?.invalid && form.get('password')?.touched}"
+  >
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+
+        <div class="form-group">
+            <label for="login-email">Email:</label>
+            <input type="text" name="username" placeholder="Логин" formControlName="email" required>
+            <span *ngIf="form.get('email')?.errors?.['required']">Email не может быть пустым</span>
+            <span *ngIf="form.get('email')?.errors?.['email']">Введите корректный email</span>
+        </div>
+
+
+        <div class="form-group">
+            <label for="login-password">Пароль:</label>
+            <input type="password" name="password" placeholder="Пароль" formControlName="password" required>
+            <span *ngIf="form.get('password')?.errors?.['required']">Пароль не может быть пустым</span>
+            <span *ngIf="form.get('password')?.errors?.['minlength']">
+              Пароль должен быть больше 
+              {{form.get('password')?.errors?.['minlength']['requiredLength']}}
+              символов. Сейчас {{form.get('password')?.errors?.['minlength']['actualLength']}}.
+            </span>
+        </div>
+
+
+        <div class="form-group">
+            <button type="submit" [disabled]="form.invalid">Вход</button>
+        </div>
+
+
+    </form>
+    <p>Нет аккаунта? <a routerLink="/auth/registration">Зарегистрируйся!</a></p>
+    <p>Вернуться на главную страницу? <br><a routerLink="/system/job-search-add">Главная страница!</a></p>
+    </div>
+</div>
+</body>
+

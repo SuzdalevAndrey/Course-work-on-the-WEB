@@ -1,0 +1,68 @@
+.content{
+    width: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+h1 {
+    text-align: center;
+}
+
+.response-cards {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(4, 1fr);
+}
+.header{
+  display: flex;
+  justify-content:space-between;
+
+  .buttons {
+      display: flex;
+      justify-content:flex-end;
+
+      height: 30px;
+      padding-top: 23px;
+      button.active {
+        background-color: #ccc;
+      }
+    }
+  
+  .response-button,
+  .my-ads-button {
+    color: rgb(255, 255, 255);
+    padding: 5px 10px;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    margin-right: 10px;
+    cursor: pointer;
+    background-color: #2980b9;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+  @media screen and (max-width: 1000px) {
+    .content {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+  @media screen and (max-width: 1200px) {
+    .response-cards {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  @media screen and (max-width: 900px) {
+    .response-cards {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media screen and (max-width: 500px) {
+    .response-cards {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }

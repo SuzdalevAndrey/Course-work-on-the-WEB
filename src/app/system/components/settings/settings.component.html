@@ -1,0 +1,11 @@
+<div class="settings-container" >
+    <!-- <h3>Настройки</h3> -->
+    <h3 *ngIf="isLoggedIn" routerLink="/system/personal-account" >{{user.name}}</h3>
+    <h2 *ngIf="!isLoggedIn" routerLink="/auth/login">Войти</h2>
+    <ul>
+        <li><a *ngIf="isLoggedIn" (click)="LogOut()">Выход</a></li>
+        <li><a *ngIf="isLoggedIn" routerLink="/system/change-password-page">Сменить пароль</a></li>
+        <li><a *ngIf="isLoggedIn" (click)="deleteUser()">Удалить аккаунт</a></li>
+    </ul>
+  </div>
+  

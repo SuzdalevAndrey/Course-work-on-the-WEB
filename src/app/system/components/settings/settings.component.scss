@@ -1,0 +1,52 @@
+.settings-container {
+    position:absolute;
+    top: 80px;
+    left: 0;
+    height: 27%;
+    width: 300px;
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.98);
+    box-shadow: -5px 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease;
+    z-index: 1;
+  }
+  h2{
+    cursor: pointer;
+    &:hover{
+      color: #2980b9;
+      transform: scale(1.1);
+    }
+    margin-top: 30%;
+  }
+  .settings-container h3 {
+    color: #333333;
+    cursor: pointer;
+    margin-top: 15%;
+    &:hover{
+      color: #2980b9;
+      transform: scale(1.1);
+    }
+  }
+  
+  .settings-container ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .settings-container li {
+    margin-bottom: 10px;
+    cursor: pointer;
+    &:hover{
+      transform: scale(1.1);
+    }
+  }
+  
+  .settings-container a {
+    text-decoration: none;
+    color: #333333;
+    font-size: 16px;
+    &:hover{
+      color: #2980b9;
+    }
+  }
+  

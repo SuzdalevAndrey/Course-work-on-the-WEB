@@ -1,0 +1,60 @@
+{
+  "users": [
+    {
+      "name": "Андрей",
+      "email": "user1@mail.ru",
+      "password": "12345678",
+      "id": 1
+    },
+    {
+      "name": "Андрей2",
+      "email": "user2@mail.ru",
+      "password": "123456",
+      "id": 2
+    }
+  ],
+  "jobs": [
+    {
+      "userId": 1,
+      "nameWork": "А111",
+      "company": "У",
+      "city": "НН",
+      "salary": "123333333",
+      "additionalInformation": null,
+      "responses": [
+        {
+          "email": "user2@mail.ru",
+          "name": "Андрей2",
+          "date": "2023-12-10T18:48:39.093Z"
+        }
+      ],
+      "id": 1
+    },
+    {
+      "userId": 1,
+      "nameWork": "в",
+      "company": "в",
+      "city": "в",
+      "salary": "1",
+      "additionalInformation": null,
+      "responses": [
+        {
+          "email": "user2@mail.ru",
+          "name": "Андрей2",
+          "date": "2023-12-10T18:48:39.952Z"
+        }
+      ],
+      "id": 2
+    },
+    {
+      "userId": 1,
+      "nameWork": "укенгш",
+      "company": "wqqdefrgthj",
+      "city": "hjk",
+      "salary": "1000",
+      "additionalInformation": "hj",
+      "responses": [],
+      "id": 3
+    }
+  ]
+}
