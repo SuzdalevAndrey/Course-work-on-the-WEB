@@ -7,6 +7,7 @@ import { PersonalAccountComponent } from '../system/personal-account/personal-ac
 import { AdCreatingPageComponent } from '../system/ad-creating-page/ad-creating-page.component';
 import { ChangePasswordPageComponent } from '../system/change-password-page/change-password-page.component';
 import { AddEditPageComponent } from '../system/add-edit-page/add-edit-page.component';
+import { EditAccountComponent } from "./components/edit-account/edit-account.component";
 
 const routes: Routes=[
     {path:'system', component: SystemComponent,children:[
@@ -15,7 +16,8 @@ const routes: Routes=[
         {path:'personal-account', component:PersonalAccountComponent},
         {path:'ad-creating-page', component:AdCreatingPageComponent},
         {path:'change-password-page', component:ChangePasswordPageComponent},
-        {path:'add-edit-page', component:AddEditPageComponent}
+        {path:'add-edit-page', component:AddEditPageComponent},
+        {path:'edit-account-page', component:EditAccountComponent}
     ]}
     
 ];

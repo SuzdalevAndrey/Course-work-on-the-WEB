@@ -12,8 +12,7 @@ export class JobModel{
 }
 export class Responses {
     constructor(
-    public email: string,
-    public name: string,
-    public date: Date
+        public userIdResponses: number,
+        public date: Date
     ) {}
 }

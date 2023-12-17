@@ -1,0 +1,35 @@
+<div class="user-card">
+  <div class="user-avatar">
+    <img src="../../../assets/free-icon-user-7323280.png" alt="User Avatar">
+  </div>
+  <div class="user-info">
+    <ng-container *ngIf="!isEditing; else editMode">
+      <h1>{{ userForm.get('name')?.value }}</h1>
+      <h3>Почта: {{ userForm.get('email')?.value }}</h3>
+      <h3>Дополнительная информация:</h3>
+      <h3>Номер телефона: {{ userForm.get('phoneNumber')?.value }}</h3>
+      <h3>Стаж работы: {{ userForm.get('experience')?.value }}</h3>
+      <h3>Ищет вакансию: {{ userForm.get('jobSearch')?.value }}</h3>
+      <h3>Количество объявлений: {{ countJob }}</h3>
+      <button class="edit-account-button" (click)="startEditing()">Редактировать аккаунт</button>
+    </ng-container>
+    <ng-template #editMode>
+      <form [formGroup]="userForm">
+        <h1>Имя:</h1>
+        <input class="nameAccount" formControlName="name"/>
+        <span *ngIf="userForm.get('name')?.errors?.['required']" class="warning">Имя должно содержать хотя бы один символ</span>
+        <h3>Почта: <input formControlName="email" /></h3>
+        <span *ngIf="userForm.get('email')?.errors?.['required']" class="warning">Email не может быть пустым</span>
+        <span *ngIf="userForm.get('email')?.errors?.['email']" class="warning">Введите корректный email</span>
+        <h3>Дополнительная информация:</h3>
+        <h3>Номер телефона: <input formControlName="phoneNumber" /></h3>
+        <h3>Стаж работы: <input formControlName="experience" /></h3>
+        <h3>Ищет вакансию: <input formControlName="jobSearch" /></h3>
+        <h3>Количество объявлений: {{ countJob }}</h3>
+        <button class="edit-account-button" [disabled]="userForm.invalid" (click)="saveUser()">Сохранить изменения</button>
+        <br>
+        <button class="edit-account-button" [disabled]="userForm.invalid" (click)="cancelEditing()">Отмена</button>
+      </form>
+    </ng-template>
+  </div>
+</div>

@@ -17,6 +17,7 @@ import { AddEditComponent } from "../system/components/add-edit/add-edit.compone
 import { AddEditPageComponent } from '../system/add-edit-page/add-edit-page.component';
 import { FooterComponent } from '../system/components/footer/footer.component';
 import { SystemComponent } from "./system.component";
+import { EditAccountComponent } from './components/edit-account/edit-account.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { SystemComponent } from "./system.component";
       ResponseCardComponent,
       AddEditComponent,
       AddEditPageComponent,
-      FooterComponent
+      FooterComponent,
+      EditAccountComponent
     ]
 
 })

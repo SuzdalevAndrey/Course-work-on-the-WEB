@@ -5,6 +5,7 @@ import { JobModel, Responses } from 'src/app/shared/models/job.model';
 import { User } from 'src/app/shared/models/user.model';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { JobService } from 'src/app/shared/services/job.service';
+import { UsersService } from 'src/app/shared/services/user.service';
 
 @Component({
   selector: 'app-job-card',
@@ -26,31 +27,31 @@ export class JobCardComponent implements OnInit {
   user!: User;
   isResponse: boolean = false;
 
-  constructor(public router: Router, public authService: AuthService, public jobService: JobService) {}
+  constructor(public router: Router, public usersService: UsersService, public jobService: JobService) {}
 
   ngOnInit(): void {
-    this.user=this.authService.getCurrentUser();
+    this.user=this.usersService.getCurrentUser();
 
     if (this.user && this.user.id !== undefined && this.user.email !== undefined && this.card) {
-      this.isResponse = this.card.responses.some(res => res.email === this.user.email);
+      this.isResponse = this.card.responses.some(res => res.userIdResponses === this.user.id);
     }
   }
 
   deleteJob() {
-    if (this.card.id !== undefined)
+    if (this.card.id !== undefined){
       this.jobService.deleteJobById(this.card.id).subscribe(() => {
         console.log('Вакансия успешно удалена');
       },
       (error) => {
         console.error('Ошибка при удалении вакансии', error);
       });
+    }
   }
 
   submitResponse() {
     if (this.user.id !== undefined && this.user.email !== undefined) {
       const response: Responses = {
-        email: this.user.email,
-        name: this.user.name,
+        userIdResponses: this.user.id,
         date: new Date()
       };
       if (this.card.id !== undefined) {

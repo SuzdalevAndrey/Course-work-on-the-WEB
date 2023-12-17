@@ -1,8 +1,16 @@
 <div class="response-card">
     <h3>Вакансия: {{nameJob}}</h3>
     <p><b>Откликнулся:</b></p>
-    <p><b>Имя: </b>{{ response?.name }}</p>
-    <p><b>Email: </b>{{ response?.email }}</p>
-    <p><b>Дата: </b>{{ response?.date |date:'dd.MM.yyy' }}</p>
-</div>
+    <p><b>Имя: </b>{{ user.name }}</p>
+    <p><b>Email: </b>{{ user.email }}</p>
+    <p><b>Дата: </b>{{ response?.date | date:'dd.MM.yyy' }}</p>
+    <div *ngIf="showAdditionalInfo">
+        <p><b>Номер телефона: </b>{{ user.phoneNumber ? user.phoneNumber : 'отсутствует'}}</p>
+        <p><b>Стаж работы: </b>{{ user.experience ? user.experience : 'отсутствует' }}</p>
+        <p><b>Поиск вакансии: </b>{{ user.jobSearch ? user.jobSearch : 'отсутствует'}}</p>
+      </div>
+    <button (click)="toggleAdditionalInfo()">
+      {{ showAdditionalInfo ? 'Скрыть доп. информацию' : 'Посмотреть доп. информацию' }}
+    </button>
+  </div>
   

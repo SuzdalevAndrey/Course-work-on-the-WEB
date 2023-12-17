@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { Router } from '@angular/router';
 import { User } from 'src/app/shared/models/user.model';
+import { UsersService } from 'src/app/shared/services/user.service';
 
 @Component({
   selector: 'app-tool-bar',
@@ -14,7 +15,7 @@ export class ToolBarComponent {
 
   isSettingsOpen: boolean = false;
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router, private usersService: UsersService) {}
   
   toggleSettingsOnMouseEnter(): void {
     this.isSettingsOpen = true;
@@ -28,7 +29,7 @@ export class ToolBarComponent {
       this.isLoggedIn = isLoggedIn;
     });
     
-    this.user=this.authService.getCurrentUser();
+    this.user=this.usersService.getCurrentUser();
   }
 
   routerLogin() {

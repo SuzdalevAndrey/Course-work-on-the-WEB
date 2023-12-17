@@ -16,12 +16,12 @@ export class SettingsComponent {
   isLoggedIn: boolean = false;
 
   constructor(private authService: AuthService, private router: Router, private userService: UsersService) {}
-  
+
   ngOnInit() {
     this.authService.isLoggedIn$.subscribe((isLoggedIn) => {
       this.isLoggedIn = isLoggedIn;
     });
-    this.user=this.authService.getCurrentUser();
+    this.user=this.userService.getCurrentUser();
   }
 
   routerLogin() {

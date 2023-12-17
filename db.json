@@ -1,60 +1,48 @@
 {
   "users": [
     {
-      "name": "Андрей",
+      "name": "User1",
       "email": "user1@mail.ru",
-      "password": "12345678",
-      "id": 1
+      "password": "123456",
+      "id": 1,
+      "phoneNumber": null,
+      "experience": null,
+      "jobSearch": null
     },
     {
-      "name": "Андрей2",
+      "name": "User2",
       "email": "user2@mail.ru",
       "password": "123456",
-      "id": 2
+      "id": 2,
+      "phoneNumber": "8950234142",
+      "experience": "",
+      "jobSearch": "Дворник"
+    },
+    {
+      "name": "User3",
+      "email": "user3@mail.ru",
+      "password": "123456",
+      "id": 3,
+      "phoneNumber": null,
+      "experience": null,
+      "jobSearch": null
     }
   ],
   "jobs": [
     {
       "userId": 1,
-      "nameWork": "А111",
-      "company": "У",
+      "nameWork": "Дворник",
+      "company": "Жкх",
       "city": "НН",
-      "salary": "123333333",
+      "salary": "100000",
       "additionalInformation": null,
       "responses": [
         {
-          "email": "user2@mail.ru",
-          "name": "Андрей2",
-          "date": "2023-12-10T18:48:39.093Z"
+          "userIdResponses": 2,
+          "date": "2023-12-17T14:02:34.991Z"
         }
       ],
       "id": 1
-    },
-    {
-      "userId": 1,
-      "nameWork": "в",
-      "company": "в",
-      "city": "в",
-      "salary": "1",
-      "additionalInformation": null,
-      "responses": [
-        {
-          "email": "user2@mail.ru",
-          "name": "Андрей2",
-          "date": "2023-12-10T18:48:39.952Z"
-        }
-      ],
-      "id": 2
-    },
-    {
-      "userId": 1,
-      "nameWork": "укенгш",
-      "company": "wqqdefrgthj",
-      "city": "hjk",
-      "salary": "1000",
-      "additionalInformation": "hj",
-      "responses": [],
-      "id": 3
     }
   ]
 }

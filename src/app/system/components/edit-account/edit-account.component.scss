@@ -1,0 +1,70 @@
+.user-card {
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    width: 400px;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .user-avatar img {
+    width: 50%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: -30px;
+  }
+  
+  .user-info {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  h1 {
+    color: #333;
+  }
+  
+  h3 {
+    color: #666;
+  }
+  .edit-account-button {
+    display: block;
+    margin: 0 auto;
+    color: rgb(255, 255, 255);
+    padding: 5px 10px;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: #2980b9;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    margin-bottom: 12px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #666;
+  }
+  
+  input:hover,
+  input:focus {
+    border-color: #2980b9;
+    outline: none;
+  }
+  .nameAccount{
+    color: #333;
+    font-size: 30px;
+  }
+  .warning{
+    color: rgb(203, 41, 41);
+  }

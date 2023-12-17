@@ -14,10 +14,10 @@ export class ChangePasswordPageComponent implements OnInit {
   form!: FormGroup;
   user!: User;
 
-  constructor(private usersService: UsersService, private authService: AuthService,  private router:Router) {}
+  constructor(private usersService: UsersService, private router:Router) {}
 
   ngOnInit() {
-    this.user = this.authService.getCurrentUser();
+    this.user = this.usersService.getCurrentUser();
 
     this.form = new FormGroup({
       'oldPassword': new FormControl(null, [Validators.required, Validators.minLength(6)]),
@@ -45,7 +45,7 @@ export class ChangePasswordPageComponent implements OnInit {
       if (newPassword === confirmPassword && oldPassword===this.user.password) {
         if(this.user.id !==undefined){
           this.user.password=newPassword;
-          this.usersService.changePassword(this.user.id, this.user).subscribe(response => {
+          this.usersService.updataUser(this.user.id, this.user).subscribe(response => {
             this.router.navigate(['/system/job-search-add'],{
               queryParams:{
                 nowCanLogin: true

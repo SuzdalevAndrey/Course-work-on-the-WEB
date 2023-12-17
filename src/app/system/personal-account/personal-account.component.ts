@@ -17,7 +17,7 @@ export class PersonalAccountComponent implements OnInit {
 
   searchInputValue = "";
 
-  activeTab: string = 'tab2';
+  activeTab: string = 'tab3';
 
   switchTab(tab: string) {
     this.activeTab = tab;
