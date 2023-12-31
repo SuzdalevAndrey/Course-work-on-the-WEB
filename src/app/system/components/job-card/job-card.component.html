@@ -7,10 +7,15 @@
     <p>Город: {{card.city}}</p>
     <p *ngIf="card.additionalInformation === null">Описание: отсутствует</p>
     <p *ngIf="card.additionalInformation !== null">Описание: {{card.additionalInformation}}</p>
-    <ng-container *ngIf="user.id!==card.userId">
-      <a class="cta-button" *ngIf="!isResponse" (click)="submitResponse()">Откликнуться</a>
-      <a class="response-button" *ngIf="isResponse">Вы уже откликнулись</a>
-    </ng-container>
-    <a *ngIf="user.id===card.userId" class="delete-button" (click)="deleteJob()">Удалить</a>
+    <div *ngIf="isLoggedIn">
+      <ng-container *ngIf="user.id!==card.userId">
+        <a class="cta-button" *ngIf="!isResponse" (click)="submitResponse()">Откликнуться</a>
+        <a class="response-button" *ngIf="isResponse">Вы уже откликнулись</a>
+      </ng-container>
+      <a *ngIf="user.id===card.userId" class="delete-button" (click)="deleteJob()">Удалить</a>
+    </div>
+    <div *ngIf="!isLoggedIn">
+        <a class="response-button">Вы не вошли в аккаунт</a>
+    </div>
   </div>
 </div>

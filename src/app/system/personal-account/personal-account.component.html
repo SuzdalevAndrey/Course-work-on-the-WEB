@@ -1,24 +1,28 @@
-<app-tool-bar ></app-tool-bar>
+<div class="container">
+  <app-tool-bar (changeSearchInputH)="changeSearchInput($event)"></app-tool-bar>
 
-<div class="header">
-  <h2 *ngIf="isActiveTab('tab3')">Профиль:</h2>
-  <h2 *ngIf="isActiveTab('tab2')">Ваши объявления о поиске работы:</h2>
-  <h2 *ngIf="isActiveTab('tab1')">Отклики на ваши вакансии:</h2>
-  <div class="buttons">
-      <button class="my-account-button" [class.active]="isActiveTab('tab3')" (click)="switchTab('tab3')">Мой профиль</button>
-      <button class="response-button" [class.active]="isActiveTab('tab1')" (click)="switchTab('tab1')">Отклики</button>
-      <button class="my-ads-button" [class.active]="isActiveTab('tab2')" (click)="switchTab('tab2')">Мои объявления</button>
+  <div class="header">
+    <h2 *ngIf="isActiveTab('tab3')">Профиль:</h2>
+    <h2 *ngIf="isActiveTab('tab2')">Ваши объявления о поиске работы:</h2>
+    <h2 *ngIf="isActiveTab('tab1')">Отклики на ваши вакансии:</h2>
+    <div class="buttons">
+        <button class="my-account-button" [class.active]="isActiveTab('tab3')" (click)="switchTab('tab3')">Мой профиль</button>
+        <button class="response-button" [class.active]="isActiveTab('tab1')" (click)="switchTab('tab1')">Отклики</button>
+        <button class="my-ads-button" [class.active]="isActiveTab('tab2')" (click)="switchTab('tab2')">Мои объявления</button>
+    </div>
   </div>
-</div>
-<app-edit-account *ngIf="isActiveTab('tab3')" [countJob]="cardJobsUser.length"></app-edit-account>
-<h3 *ngIf="cardJobsUser.length === 0 && !isActiveTab('tab3')">У вас пока нет объявлений</h3>
-<div *ngIf="isActiveTab('tab2')" class="content">
-  <app-job-card *ngFor="let card of cardJobsUser | filterCard:searchInputValue" [card]="card"></app-job-card>
-</div>
-<div *ngIf="isActiveTab('tab1')">
-  <div *ngFor="let job of cardJobsUser | filterCard:searchInputValue">
-    <div class="response-cards">
-      <app-response-card *ngFor="let response of getResponsesForJob(job)" [response]="response" [nameJob]="job.nameWork"></app-response-card>
+  <app-edit-account *ngIf="isActiveTab('tab3')" [countJob]="cardJobsUser.length"></app-edit-account>
+  <h3 *ngIf="cardJobsUser.length === 0 && !isActiveTab('tab3')">У вас пока нет объявлений</h3>
+  <div *ngIf="isActiveTab('tab2')" class="content">
+    <div class="content-card">
+      <app-job-card *ngFor="let card of cardJobsUser | filterCard:searchInputValue" [card]="card" (jobDeleted)="handleJobDeleted()"></app-job-card>
+    </div>
+  </div>
+  <div *ngIf="isActiveTab('tab1')">
+    <div *ngFor="let job of cardJobsUser | filterCard:searchInputValue">
+      <div class="response-cards">
+        <app-response-card *ngFor="let response of getResponsesForJob(job)" [response]="response" [nameJob]="job.nameWork"></app-response-card>
+      </div>
     </div>
   </div>
 </div>

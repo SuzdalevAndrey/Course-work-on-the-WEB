@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { mergeMap, of } from 'rxjs';
 import { JobModel, Responses } from 'src/app/shared/models/job.model';
@@ -13,6 +13,7 @@ import { UsersService } from 'src/app/shared/services/user.service';
   styleUrls: ['./job-card.component.scss']
 })
 export class JobCardComponent implements OnInit {
+  @Output() jobDeleted = new EventEmitter<void>();
   @Input() card: JobModel = {
     userId: -100,
     id: 1,
@@ -23,14 +24,20 @@ export class JobCardComponent implements OnInit {
     additionalInformation: "",
     responses: [],
   };
-  
+
+  isLoggedIn: boolean = false;
+
   user!: User;
   isResponse: boolean = false;
 
-  constructor(public router: Router, public usersService: UsersService, public jobService: JobService) {}
+  constructor(public router: Router, public usersService: UsersService, public jobService: JobService, private authService: AuthService) {}
 
   ngOnInit(): void {
     this.user=this.usersService.getCurrentUser();
+
+    this.authService.isLoggedIn$.subscribe((isLoggedIn) => {
+      this.isLoggedIn = isLoggedIn;
+    });
 
     if (this.user && this.user.id !== undefined && this.user.email !== undefined && this.card) {
       this.isResponse = this.card.responses.some(res => res.userIdResponses === this.user.id);
@@ -41,6 +48,7 @@ export class JobCardComponent implements OnInit {
     if (this.card.id !== undefined){
       this.jobService.deleteJobById(this.card.id).subscribe(() => {
         console.log('Вакансия успешно удалена');
+        this.jobDeleted.emit();
       },
       (error) => {
         console.error('Ошибка при удалении вакансии', error);

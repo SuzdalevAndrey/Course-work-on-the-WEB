@@ -30,6 +30,7 @@ export class SettingsComponent {
 
   LogOut() {
     this.authService.logout();
+    this.router.navigate(['/system/job-search-add']);
   }
 
   deleteUser(){

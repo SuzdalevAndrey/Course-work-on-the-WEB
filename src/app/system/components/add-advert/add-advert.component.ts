@@ -34,11 +34,7 @@ export class AddAdvertComponent {
     const {nameJob,сompany,city,salary,additionalInformation} = this.form.value;
     const job = new JobModel(this.userId,nameJob,сompany,city,salary,additionalInformation);
     this.jobsService.createNewJob(job).subscribe((job:JobModel)=>{
-        this.router.navigate(['/system/job-search-add'],{
-          queryParams:{
-            nowCanLogin: true
-          }
-        })
+        this.router.navigate(['/system/job-search-add'])
     });
   }
 }

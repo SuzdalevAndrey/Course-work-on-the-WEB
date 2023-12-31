@@ -2,10 +2,7 @@ import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import {map} from 'rxjs/operators'
-
-
 import { User } from '../models/user.model';
-import { UrlSegment } from '@angular/router';
 
 @Injectable()
 export class UsersService{

@@ -1,12 +1,11 @@
-<app-tool-bar (changeSearchInputH)="changeSearchInput($event)"></app-tool-bar>
-<!-- <app-settings *ngIf="isSettingsOpen"></app-settings>
-<img src= "../../../../assets/free-icon-settings-503822 (1).png" (click)="toggleSettings()"> -->
-<h2>Все вакансии:</h2>
-<div class="content">
-    <app-job-card *ngFor="let card of cardAdds | filterCard:searchInputValue" [card]="card"></app-job-card>
+<div class="container">
+    <app-tool-bar (changeSearchInputH)="changeSearchInput($event)"></app-tool-bar>
+    <!-- <img src="../../../assets/1645042344_6-fikiwiki-com-p-kartinki-ishchu-rabotu-8.jpg" class="image"> -->
+    <img src="../../../assets/8619.jpg" [ngClass]="{'image-blur': isBlurred, 'image-normal': !isBlurred}">
+    <div class="content">
+        <h2>Вакансии:</h2>
+        <div class="content-card">
+            <app-job-card *ngFor="let card of cardAdds | filterCard:searchInputValue" [card]="card" (jobDeleted)="handleJobDeleted()"></app-job-card>
+        </div>
+    </div>
 </div>
-<!-- <app-footer></app-footer> -->
-<!-- <div class="newJob">
-    <app-add-advert *ngIf="isLoggedIn"></app-add-advert>
-<div class="content"> -->
-

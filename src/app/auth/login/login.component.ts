@@ -15,17 +15,20 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 export class LoginComponent implements OnInit {
   form!: FormGroup;
   message!: Message;
+  isLoggedIn: boolean = false;
+
   constructor(
     private usersService:UsersService,
     private router:Router,
     private route:ActivatedRoute,
     public autorization:AuthService){}
+    
   ngOnInit(){
     this.message = new Message('danger',' ');
 
     this.form = new FormGroup({
-      'email': new FormControl(null, [Validators.required,Validators.email]),
-      'password': new FormControl(null,[Validators.required,Validators.minLength(6)])
+      'email': new FormControl(null, [Validators.required, Validators.pattern('^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$')]),
+      'password': new FormControl(null, [Validators.required,Validators.minLength(6)])
     });
 
     this.route.queryParams.subscribe((params:Params)=>{
@@ -36,6 +39,12 @@ export class LoginComponent implements OnInit {
         });
       }
     })
+    this.autorization.isLoggedIn$.subscribe((isLoggedIn) => {
+      this.isLoggedIn = isLoggedIn;
+    });
+    if(this.isLoggedIn){
+      this.router.navigate(['/system/job-search-add']);
+    }
   }
   private showMessage(message:Message){
     this.message = message;

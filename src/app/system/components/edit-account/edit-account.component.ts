@@ -24,7 +24,7 @@ export class EditAccountComponent {
     this.user=this.usersService.getCurrentUser();
     this.userForm = this.fb.group({
       name: [this.user.name, Validators.required],
-      email: [this.user.email, [Validators.required, Validators.email]],
+      email: [this.user.email, [Validators.required, Validators.pattern('^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$')]],
       phoneNumber: [this.user.phoneNumber],
       experience: [this.user.experience],
       jobSearch: [this.user.jobSearch]

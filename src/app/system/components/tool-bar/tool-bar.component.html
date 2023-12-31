@@ -1,17 +1,38 @@
-<div class="sidebar">
-    <div class="sidebar__left">
-        <!-- <img src="../../../../assets/free-icon-home-813670.png" class="home-button" routerLink="/system/job-search-add"> -->
+<div class="toolbar" *ngIf="!isMainPage">
+    <div class="toolbar__left">
         <div (mouseenter)="toggleSettingsOnMouseEnter()" (mouseleave)="closeSettingsOnMouseLeave()">
             <img src= "../../../../assets/free-icon-user-1946429.png" class="settings-button">
             <app-settings *ngIf="isSettingsOpen"></app-settings>
         </div>
         <app-search (changeInputValue)="searchInputValueHelp($event)" ></app-search>
     </div>
-    <div class="sidebar__center">
+    <div class="toolbar__center">
         <h1 routerLink="/system/job-search-add">SkillSphere</h1>
     </div>
-    <div class="sidebar__right">
+    <div class="toolbar__right">
         <button class="add-button" *ngIf="isLoggedIn"  [routerLink]="['/system','ad-creating-page']">Добавить объявление</button>
         <button class="login-button" *ngIf="!isLoggedIn" [routerLink]="['/auth','login']">Войти</button>
+    </div>
+</div>
+
+<div class="toolbarMain" *ngIf="isMainPage">
+    <div class="nameAddJob">
+        <div class="nameAddJob__left">
+            <div (mouseenter)="toggleSettingsOnMouseEnter()" (mouseleave)="closeSettingsOnMouseLeave()">
+                <img src= "../../../../assets/free-icon-user-1946429.png" class="settings-button">
+                <app-settings *ngIf="isSettingsOpen"></app-settings>
+            </div>
+        </div>
+        <div class="nameAddJob__center">
+            <h1 routerLink="/system/job-search-add">SkillSphere</h1>
+        </div>
+        <div class="nameAddJob__right">
+            <button class="add-button" *ngIf="isLoggedIn"  [routerLink]="['/system','ad-creating-page']">Добавить объявление</button>
+            <button class="login-button" *ngIf="!isLoggedIn" [routerLink]="['/auth','login']">Войти</button>
+        </div>
+    </div>
+    <div class="search">
+        <!-- <h2>Работа найдётся для каждого</h2> -->
+        <app-search (changeInputValue)="searchInputValueHelp($event)" ></app-search>
     </div>
 </div>

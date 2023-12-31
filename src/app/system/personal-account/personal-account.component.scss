@@ -1,12 +1,19 @@
 .content{
-    width: 100%;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+  margin-left: 50px;
+}
+.content-card{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  width: 100%;
 }
 h1 {
     text-align: center;
+}
+
+.container{
+  margin-left: 10px;
+  position: relative;
 }
 
 .response-cards {
@@ -17,7 +24,6 @@ h1 {
 .header{
   display: flex;
   justify-content:space-between;
-
   .buttons {
       display: flex;
       justify-content:flex-end;

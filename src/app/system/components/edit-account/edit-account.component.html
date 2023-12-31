@@ -20,7 +20,7 @@
         <span *ngIf="userForm.get('name')?.errors?.['required']" class="warning">Имя должно содержать хотя бы один символ</span>
         <h3>Почта: <input formControlName="email" /></h3>
         <span *ngIf="userForm.get('email')?.errors?.['required']" class="warning">Email не может быть пустым</span>
-        <span *ngIf="userForm.get('email')?.errors?.['email']" class="warning">Введите корректный email</span>
+        <span *ngIf="userForm.get('email')?.hasError('pattern')" class="warning">Введите корректный email</span>
         <h3>Дополнительная информация:</h3>
         <h3>Номер телефона: <input formControlName="phoneNumber" /></h3>
         <h3>Стаж работы: <input formControlName="experience" /></h3>

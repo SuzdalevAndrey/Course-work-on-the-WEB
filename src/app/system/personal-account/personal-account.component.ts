@@ -37,6 +37,12 @@ export class PersonalAccountComponent implements OnInit {
     this.filterType = 'applied';
   }
 
+  handleJobDeleted() {
+    this.jobCard.getJobs().subscribe((jobs: JobModel[]) => {
+      this.cardJobsUser = jobs;
+    });
+  }
+
   getResponsesForJob(job: JobModel): Responses[] {
     return job.responses;
   }

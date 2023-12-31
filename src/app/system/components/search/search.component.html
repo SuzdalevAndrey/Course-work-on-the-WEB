@@ -1,3 +1,5 @@
 <form submit="" class="form">
-  <input class="input" (keyup)="emitInputChange()" name="searchInput" type="text" placeholder="Вакансия" [(ngModel)]="searchInputValue" />
+  <input class="input" name="searchInput" (keyup.enter)="emitInputChange()" (keyup)="NoInputChange()" type="text" placeholder="Название вакансии" [(ngModel)]="searchInputValue" (mouseenter)="toggleBlurOnMouseEnter()" (mouseleave)="toggleBlurOnMouseLeave()" autocomplete="off"/>
+  <button *ngIf="isMainPage" (click)="emitInputChange()"class="search-button">Найти работу</button>
+  <img src="../../../../assets/free-icon-search-3495620.png" *ngIf="!isMainPage" (click)="emitInputChange()">
 </form>

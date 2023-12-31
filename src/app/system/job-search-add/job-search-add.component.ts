@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { JobService } from 'src/app/shared/services/job.service';
 import { JobModel } from 'src/app/shared/models/job.model';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { BlurService } from 'src/app/shared/services/blur.sevice';
 
 @Component({
   selector: 'app-job-search-add',
@@ -11,14 +12,22 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 export class JobSearchAddComponent implements OnInit {
   cardAdds: JobModel[] = [];
 
+  isBlurred: boolean = false;
+
   isLoggedIn: boolean = false;
 
   searchInputValue = "";
   
-  constructor(private authService: AuthService, private jobCard: JobService) {}
+  constructor(private authService: AuthService, private jobCard: JobService, private blurService:BlurService) {}
 
   changeSearchInput(text: string) {
     this.searchInputValue = text;
+  }
+
+  handleJobDeleted() {
+    this.jobCard.getJobs().subscribe((jobs: JobModel[]) => {
+      this.cardAdds = jobs;
+    });
   }
 
   ngOnInit(): void {
@@ -27,6 +36,9 @@ export class JobSearchAddComponent implements OnInit {
     });
     this.jobCard.getJobs().subscribe((jobs: JobModel[]) => {
       this.cardAdds = jobs;
+    });
+    this.blurService.isBlurred$.subscribe((isBlurred) => {
+      this.isBlurred = isBlurred;
     });
   }
 }

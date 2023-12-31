@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AuthService } from 'src/app/shared/services/auth.service';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { User } from 'src/app/shared/models/user.model';
 import { UsersService } from 'src/app/shared/services/user.service';
 
@@ -12,6 +12,8 @@ import { UsersService } from 'src/app/shared/services/user.service';
 export class ToolBarComponent {
   isLoggedIn: boolean = false;
   user!: User;
+
+  isMainPage: boolean = true;
 
   isSettingsOpen: boolean = false;
 
@@ -30,6 +32,22 @@ export class ToolBarComponent {
     });
     
     this.user=this.usersService.getCurrentUser();
+
+    this.router.events.subscribe((event)=>{
+      if(event instanceof NavigationEnd){
+        this.Navigate(event.url);
+      }
+    });
+    this.Navigate(this.router.url);
+  }
+
+  Navigate(url:string){
+    if(url === '/system/job-search-add'){
+      this.isMainPage = true;
+    }
+    else{
+      this.isMainPage = false;
+    }
   }
 
   routerLogin() {

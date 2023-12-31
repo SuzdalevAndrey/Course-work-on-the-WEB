@@ -1,16 +1,16 @@
 {
   "users": [
     {
-      "name": "User1",
+      "name": "user1",
       "email": "user1@mail.ru",
       "password": "123456",
       "id": 1,
-      "phoneNumber": null,
-      "experience": null,
+      "phoneNumber": "12345678",
+      "experience": "1001231",
       "jobSearch": null
     },
     {
-      "name": "User2",
+      "name": "user2",
       "email": "user2@mail.ru",
       "password": "123456",
       "id": 2,
@@ -31,18 +31,58 @@
   "jobs": [
     {
       "userId": 1,
-      "nameWork": "Дворник",
-      "company": "Жкх",
-      "city": "НН",
+      "nameWork": "Программист",
+      "company": "Яндекс",
+      "city": "Москва",
       "salary": "100000",
       "additionalInformation": null,
       "responses": [
         {
           "userIdResponses": 2,
-          "date": "2023-12-17T14:02:34.991Z"
+          "date": "2023-12-23T13:29:03.933Z"
         }
       ],
-      "id": 1
+      "id": 4
+    },
+    {
+      "userId": 1,
+      "nameWork": "Инженер",
+      "company": "ПАО \"Нител\"",
+      "city": "НН",
+      "salary": "50000",
+      "additionalInformation": null,
+      "responses": [
+        {
+          "userIdResponses": 2,
+          "date": "2023-12-23T13:29:04.808Z"
+        }
+      ],
+      "id": 5
+    },
+    {
+      "userId": 1,
+      "nameWork": "Водитель автобуса",
+      "company": "ООО \"Футбол\"",
+      "city": "НН",
+      "salary": "50000",
+      "additionalInformation": null,
+      "responses": [],
+      "id": 6
+    },
+    {
+      "userId": 1,
+      "nameWork": "Дизайнер",
+      "company": "Яндекс",
+      "city": "Москва",
+      "salary": "100000",
+      "additionalInformation": null,
+      "responses": [
+        {
+          "userIdResponses": 2,
+          "date": "2023-12-31T20:05:51.715Z"
+        }
+      ],
+      "id": 7
     }
   ]
 }

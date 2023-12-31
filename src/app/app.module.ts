@@ -12,7 +12,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { SystemModule } from './system/system.module';
 import { RouterModule } from '@angular/router';
 import { JobService } from './shared/services/job.service';
-import { FilterCardPipe } from './shared/pipes/filter.pipe';
 
 
 @NgModule({
