@@ -15,14 +15,14 @@
   width: 100%;
   margin: 0, auto;
   filter: blur(0);
-  transition: filter 0.5s ease;
+  transition: filter 0.7s ease;
 }
 .container .image-blur {
   max-width: 100%;
   width: 100%;
   margin: 0, auto;
-  filter: blur(5px);
-  transition: filter 0.5s ease;
+  filter: blur(3px);
+  transition: filter 0.7s ease;
 }
 
 app-tool-bar {
