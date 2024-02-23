@@ -1,7 +1,7 @@
 <div class="toolbar" *ngIf="!isMainPage">
     <div class="toolbar__left">
         <div (mouseenter)="toggleSettingsOnMouseEnter()" (mouseleave)="closeSettingsOnMouseLeave()">
-            <img src= "../../../../assets/free-icon-user-1946429.png" class="settings-button">
+            <img src= "../../../../assets/Icon_user.png" class="settings-button">
             <app-settings *ngIf="isSettingsOpen"></app-settings>
         </div>
         <app-search (changeInputValue)="searchInputValueHelp($event)" ></app-search>
@@ -19,7 +19,7 @@
     <div class="nameAddJob">
         <div class="nameAddJob__left">
             <div (mouseenter)="toggleSettingsOnMouseEnter()" (mouseleave)="closeSettingsOnMouseLeave()">
-                <img src= "../../../../assets/free-icon-user-1946429.png" class="settings-button">
+                <img src= "../../../../assets/Icon_user.png" class="settings-button">
                 <app-settings *ngIf="isSettingsOpen"></app-settings>
             </div>
         </div>
