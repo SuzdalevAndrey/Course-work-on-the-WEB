@@ -1,12 +1,12 @@
 .settings-container {
     position:absolute;
-    width: 300px;
-    border-radius: 30px;
+    width: 15%;
+    height: auto;
+    border-radius: 15px;
     background-color: rgba(255, 255, 255, 0.98);
-    box-shadow: -5px 0 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.5s ease;
+    box-shadow: 2px 2px 10px rgba(0, 0.2, 0, 0.4);
+    transition: transform 2ms ease;
     z-index: 2;
-    padding-bottom: 50px;
   }
   h2{
     cursor: pointer;
@@ -27,12 +27,12 @@
   }
   
   .settings-container ul {
-    list-style: none;
+    list-style:none;
     padding: 0;
   }
   
   .settings-container li {
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     cursor: pointer;
     &:hover{
       transform: scale(1.1);
