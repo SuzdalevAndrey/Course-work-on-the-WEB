@@ -2,9 +2,8 @@
     position: relative;
     border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-    overflow: hidden;
-    width: 600px;
-    max-width: 100%;
+    width: 350px;
+    max-width: 90%;
     margin-bottom: 30px;
     cursor: default;
     &:hover {
@@ -13,6 +12,7 @@
       -moz-box-shadow: 0px 5px 20px -5px rgba(0, 0, 0, 1);
       box-shadow: 0px 5px 20px -5px rgba(0, 0, 0, 1);
     }
+    border-style:double;
   }
   .edit-icon {
     position: absolute;
